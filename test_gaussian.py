@@ -1,7 +1,9 @@
 # Test Gaussian Naive Bayes with the Iris dataset
+
 import numpy as np
 import pandas as pd
 from sklearn import datasets
+
 iris = datasets.load_iris()
 new_iris = np.hstack((iris["data"],iris["target"].reshape(150,1)))
 attributes = iris["feature_names"].copy()
@@ -22,7 +24,8 @@ my_clf = MyGaussianNaiveBayes()
 from sklearn.naive_bayes import GaussianNB
 sk_clf = GaussianNB()
 
-# Similar results
+# Comparison
 from sklearn.model_selection import cross_val_score
 cross_val_score(my_clf, X, y, cv=3, scoring = "accuracy")
 cross_val_score(sk_clf, X, y, cv=3, scoring = "accuracy")
+# I got similar results
